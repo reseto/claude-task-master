@@ -38,6 +38,7 @@ import {
 // Import provider classes
 import {
 	AnthropicAIProvider,
+	AwsQCliProvider,
 	AzureProvider,
 	BedrockAIProvider,
 	ClaudeCodeProvider,
@@ -58,6 +59,7 @@ import ProviderRegistry from '../../src/provider-registry/index.js';
 // Create provider instances
 const PROVIDERS = {
 	anthropic: new AnthropicAIProvider(),
+	'aws-q-cli': new AwsQCliProvider(),
 	perplexity: new PerplexityAIProvider(),
 	google: new GoogleAIProvider(),
 	openai: new OpenAIProvider(),

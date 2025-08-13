@@ -644,6 +644,7 @@ function isApiKeySet(providerName, session = null, projectRoot = null) {
 
 	// Providers that don't require API keys for authentication
 	const providersWithoutApiKeys = [
+		CUSTOM_PROVIDERS.AWS_Q_CLI,
 		CUSTOM_PROVIDERS.OLLAMA,
 		CUSTOM_PROVIDERS.BEDROCK,
 		CUSTOM_PROVIDERS.MCP,
@@ -950,6 +951,7 @@ function getBaseUrlForRole(role, explicitRoot = null) {
 
 // Export the providers without API keys array for use in other modules
 export const providersWithoutApiKeys = [
+	CUSTOM_PROVIDERS.AWS_Q_CLI,
 	CUSTOM_PROVIDERS.OLLAMA,
 	CUSTOM_PROVIDERS.BEDROCK,
 	CUSTOM_PROVIDERS.GEMINI_CLI,

@@ -69,6 +69,41 @@
 			"supported": true
 		}
 	],
+	"aws-q-cli": [
+		{
+			"id": "q-cli/default",
+			"swe_score": null,
+			"cost_per_1m_tokens": {
+				"input": 0,
+				"output": 0
+			},
+			"allowed_roles": ["main", "fallback", "research"],
+			"max_tokens": 100000,
+			"supported": true
+		},
+		{
+			"id": "q-cli/claude",
+			"swe_score": null,
+			"cost_per_1m_tokens": {
+				"input": 0,
+				"output": 0
+			},
+			"allowed_roles": ["main", "fallback", "research"],
+			"max_tokens": 100000,
+			"supported": true
+		},
+		{
+			"id": "q-cli/gpt",
+			"swe_score": null,
+			"cost_per_1m_tokens": {
+				"input": 0,
+				"output": 0
+			},
+			"allowed_roles": ["main", "fallback", "research"],
+			"max_tokens": 100000,
+			"supported": true
+		}
+	],
 	"mcp": [
 		{
 			"id": "mcp-sampling",

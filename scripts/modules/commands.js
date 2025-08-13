@@ -3732,6 +3732,10 @@ ${result.result}
 			'Allow setting a Claude Code model ID (use with --set-*)'
 		)
 		.option(
+			'--aws-q-cli',
+			'Allow setting an AWS Q CLI model ID (use with --set-*)'
+		)
+		.option(
 			'--azure',
 			'Allow setting a custom Azure OpenAI model ID (use with --set-*) '
 		)
@@ -3755,6 +3759,7 @@ Examples:
   $ task-master models --set-main anthropic.claude-3-sonnet-20240229-v1:0 --bedrock # Set custom Bedrock model for main role
   $ task-master models --set-main some/other-model --openrouter # Set custom OpenRouter model for main role
   $ task-master models --set-main sonnet --claude-code           # Set Claude Code model for main role
+  $ task-master models --set-main q-cli/default --aws-q-cli      # Set AWS Q CLI model for main role
   $ task-master models --set-main gpt-4o --azure # Set custom Azure OpenAI model for main role
   $ task-master models --set-main claude-3-5-sonnet@20241022 --vertex # Set custom Vertex AI model for main role
   $ task-master models --set-main gemini-2.5-pro --gemini-cli # Set Gemini CLI model for main role
@@ -3774,12 +3779,13 @@ Examples:
 				options.ollama,
 				options.bedrock,
 				options.claudeCode,
+				options.awsQCli,
 				options.geminiCli
 			].filter(Boolean).length;
 			if (providerFlags > 1) {
 				console.error(
 					chalk.red(
-						'Error: Cannot use multiple provider flags (--openrouter, --ollama, --bedrock, --claude-code, --gemini-cli) simultaneously.'
+						'Error: Cannot use multiple provider flags (--openrouter, --ollama, --bedrock, --claude-code, --aws-q-cli, --gemini-cli) simultaneously.'
 					)
 				);
 				process.exit(1);
@@ -3823,9 +3829,11 @@ Examples:
 									? 'bedrock'
 									: options.claudeCode
 										? 'claude-code'
-										: options.geminiCli
-											? 'gemini-cli'
-											: undefined
+										: options.awsQCli
+											? 'aws-q-cli'
+											: options.geminiCli
+												? 'gemini-cli'
+												: undefined
 					});
 					if (result.success) {
 						console.log(chalk.green(`✅ ${result.data.message}`));
@@ -3849,9 +3857,11 @@ Examples:
 									? 'bedrock'
 									: options.claudeCode
 										? 'claude-code'
-										: options.geminiCli
-											? 'gemini-cli'
-											: undefined
+										: options.awsQCli
+											? 'aws-q-cli'
+											: options.geminiCli
+												? 'gemini-cli'
+												: undefined
 					});
 					if (result.success) {
 						console.log(chalk.green(`✅ ${result.data.message}`));
@@ -3877,9 +3887,11 @@ Examples:
 									? 'bedrock'
 									: options.claudeCode
 										? 'claude-code'
-										: options.geminiCli
-											? 'gemini-cli'
-											: undefined
+										: options.awsQCli
+											? 'aws-q-cli'
+											: options.geminiCli
+												? 'gemini-cli'
+												: undefined
 					});
 					if (result.success) {
 						console.log(chalk.green(`✅ ${result.data.message}`));

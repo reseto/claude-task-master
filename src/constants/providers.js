@@ -16,6 +16,7 @@ export const VALIDATED_PROVIDERS = [
 
 // Custom providers object for easy named access
 export const CUSTOM_PROVIDERS = {
+	AWS_Q_CLI: 'aws-q-cli',
 	AZURE: 'azure',
 	VERTEX: 'vertex',
 	BEDROCK: 'bedrock',
